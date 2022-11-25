@@ -3,10 +3,13 @@ import Contact from '../../Models/Contact';
 
 export default class ContactsController {
 
-    public async index(ctx: HttpContextContract) {
+    public async index({view}: HttpContextContract) {
 
-        const contacts = Contact.all(); 
-        return contacts;
+        const contacts = await Contact.all(); 
+        // return contacts;
+        // console.log(contacts);
+        
+        return view.render('contacts.index', { contacts })
         
     }
 }
