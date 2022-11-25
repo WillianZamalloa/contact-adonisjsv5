@@ -1,0 +1,14 @@
+
+<h1>Relacion de usuarios</h1>
+<hr>
+
+@each(user in users)
+    <li> {{ user.username }} - {{ user.gender }} - 
+         @if( user.gender == 'm')
+            femenino
+         @else
+            masculino
+         @end
+    
+    </li>
+@end
