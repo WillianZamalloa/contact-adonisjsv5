@@ -1,9 +1,12 @@
+@layout('layouts/main')
+@set('title', 'Contacts')
 
+@section('body')
+    <h1>Relacion de contactos -</h1>
+    <hr>
 
-<h1>Relacion de contactos -</h1>
-<hr>
-
-@each(contact in contacts)
-    <li> {{ contact.nombre }} - {{ contact.telefono }}  </li>
+    @each(contact in contacts)
+        <li> {{ contact.nombre }} - {{ contact.telefono }}  </li>
+    @end
 @end
 
