@@ -66,6 +66,15 @@ Route.get('bienvenidos/:nombre', 'PaginasController.bienveni2')
 Route.get('plantilla', 'PaginasController.template')
 
 
-Route.get('contacts', 'ContactsController.index')
+Route.get('contacts', 'ContactsController.index').as('contacts.index')
+Route.get('/contacts/create', 'ContactsController.create').as('contacts.create')
 
 // Route.get('paginas/:nombre', 'PaginasController.saludo')
+// Rutas de contactos
+// Route.get('/contacts', 'ContactController.index').as('contacts.index')
+// Route.get('/contacts/create', 'ContactController.create').as('contacts.create')
+// Route.post('/contacts', 'ContactController.store').as('contacts.store').validator(['StoreContact'])
+// Route.get('/contacts/:id', 'ContactController.show').as('contacts.show')
+// Route.get('/contacts/:id/edit', 'ContactController.edit').as('contacts.edit')
+// Route.put('/contacts/:id', 'ContactController.update').as('contacts.update')
+// Route.delete('/contacts/:id', 'ContactController.destroy').as('contacts.destroy')

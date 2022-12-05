@@ -12,4 +12,10 @@ export default class ContactsController {
         return view.render('contacts.index', { contacts })
         
     }
+
+    public async create({view}: HttpContextContract) {        
+        return view.render('contacts.create')        
+    }
+
+
 }
