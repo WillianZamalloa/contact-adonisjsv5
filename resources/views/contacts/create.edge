@@ -1,15 +1,11 @@
 @layout('layouts/main')
-@set('title', 'Create Contacts')
+@set('title', 'Add Contacts')
 
-@section('body')
-
+@section('body')  
     <h2>
-        Ingresar nuevo contacto			
-        <a href="" class="btn btn-info pull-right">
-             Volver
+        Agregar contactos
+        <a class="btn btn-outline-primary " href="{{ route('contacts.index') }}" role="button" >
+            <ion-icon name="arrow-back-outline" size="large"></ion-icon>
         </a>
     </h2>
-
-    
-
 @end
