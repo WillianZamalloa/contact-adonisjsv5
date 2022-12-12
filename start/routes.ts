@@ -67,7 +67,10 @@ Route.get('plantilla', 'PaginasController.template')
 
 
 Route.get('contacts', 'ContactsController.index').as('contacts.index')
-Route.get('/contacts/create', 'ContactsController.create').as('contacts.create')
+Route.get('contacts/create', 'ContactsController.create').as('contacts.create')
+Route.post('contacts', 'ContactsController.store').as('contacts.store')
+
+
 
 // Route.get('paginas/:nombre', 'PaginasController.saludo')
 // Rutas de contactos

@@ -17,5 +17,18 @@ export default class ContactsController {
         return view.render('contacts.create')        
     }
 
+    public async store({ request, session, response }: HttpContextContract) {   
+
+        const contact = await Contact.create({
+            nombre: request.input('nombre'),
+            telefono: request.input('telefono'),
+        })
+        // Listamos con el neuvo contacto
+        session.flash({ mensaje: ` ${ contact.$isPersisted }: Contacto agregado!`})
+        response.redirect('contacts')
+        
+        // return request; request.all()
+    }
+
 
 }

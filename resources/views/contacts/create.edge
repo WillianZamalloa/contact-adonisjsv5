@@ -8,4 +8,25 @@
             <ion-icon name="arrow-back-outline" size="large"></ion-icon>
         </a>
     </h2>
+
+    <form action="{{ route('contacts.store') }}" method="POST">
+        {{ csrfField() }}
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombres y Apellidos</label>
+          <input type="text" class="form-control text-uppercase" id="nombre"  
+                 name="nombre" onkeyup="var start = this.selectionStart;
+                                        var end = this.selectionEnd;
+                                        this.value = this.value.toUpperCase();
+                                        this.setSelectionRange(start, end);" >
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Telefono</label>
+          <input type="text" class="form-control" id="telefono" name="telefono">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">
+            <ion-icon name="save-outline" size="large"></ion-icon> Guardar
+        </button>
+    </form>
+
 @end
