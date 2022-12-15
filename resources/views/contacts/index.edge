@@ -24,7 +24,22 @@
                 <th scope="row">{{ contact.id }}</th>
                 <td>{{ contact.nombre }}</td>
                 <td>{{ contact.telefono }}</td>
-                <td>@mdo</td>
+                <td>
+                    <a class="btn btn-outline-success " href="{{ route('contacts.show', { id: contact.id }) }}" role="button" >
+                        <ion-icon name="eye-outline" size="small"></ion-icon>
+                    </a>
+                    <a class="btn btn-outline-primary " href="{{ route('contacts.show', { id: contact.id }) }}" role="button" >
+                        <ion-icon name="pencil-outline" size="small"></ion-icon>
+                    </a>
+                    
+                    <form action="{{ route('contacts.destroy', { id: contact.id }) + '?_method=DELETE' }}" method="POST">
+                        {{ csrfField() }}
+                        <button class="btn btn-outline-danger ">
+                            <ion-icon name="trash-outline" size="small"></ion-icon>
+                        </button>
+                    </form>
+
+                </td>
             </tr>
             @end        
         </tbody>
@@ -37,5 +52,8 @@
             </tr>
         </tfoot>
     </table>    
+
+   
+
 @end
 

@@ -69,6 +69,9 @@ Route.get('plantilla', 'PaginasController.template')
 Route.get('contacts', 'ContactsController.index').as('contacts.index')
 Route.get('contacts/create', 'ContactsController.create').as('contacts.create')
 Route.post('contacts', 'ContactsController.store').as('contacts.store')
+Route.get('/contacts/:id', 'ContactsController.show').as('contacts.show')
+
+Route.delete('/contacts/:id', 'ContactsController.destroy').as('contacts.destroy')
 
 
 

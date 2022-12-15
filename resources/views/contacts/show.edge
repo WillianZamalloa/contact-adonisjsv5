@@ -1,0 +1,26 @@
+@layout('layouts/main')
+@set('title', 'Show Contacts')
+
+@section('body')  
+    <h2>
+        Ver contacto
+        <a class="btn btn-outline-primary " href="{{ route('contacts.index') }}" role="button" >
+            <ion-icon name="arrow-back-outline" size="large"></ion-icon>
+        </a>
+    </h2>
+
+    <form >
+        
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombres y Apellidos</label>
+          <input type="text" class="form-control" disabled value="{{ contact.nombre }}">
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Telefono</label>
+          <input type="text" class="form-control" disabled value="{{ contact.telefono }}">
+        </div>
+        
+        
+    </form>
+
+@end

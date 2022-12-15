@@ -10,6 +10,8 @@ export default class ContactsController {
         // console.log(contacts);
         
         return view.render('contacts.index', { contacts })
+
+        
         
     }
 
@@ -28,6 +30,24 @@ export default class ContactsController {
         response.redirect('contacts')
         
         // return request; request.all()
+    }
+
+    public async show({view, params}: HttpContextContract) {    
+
+        const contact = await Contact.findOrFail(params.id)
+        return view.render('contacts.show',{ contact })        
+    }
+
+
+
+    public async destroy({params, session, response}: HttpContextContract) {    
+
+        const contact = await Contact.findOrFail(params.id)
+        await contact.delete()
+        // Listamos con el neuvo contacto
+        session.flash({ mensaje: ` ${ contact.$isPersisted }: Contacto eliminado!`})
+        response.redirect().back()
+        
     }
 
 
