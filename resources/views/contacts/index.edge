@@ -32,7 +32,7 @@
                         <ion-icon name="pencil-outline" size="small"></ion-icon>
                     </a>
                     
-                    <form action="{{ route('contacts.destroy', { id: contact.id }) + '?_method=DELETE' }}" method="POST">
+                    <form class="d-inline-flex" action="{{ route('contacts.destroy', { id: contact.id }) + '?_method=DELETE' }}" method="POST">
                         {{ csrfField() }}
                         <button class="btn btn-outline-danger ">
                             <ion-icon name="trash-outline" size="small"></ion-icon>
@@ -53,6 +53,24 @@
         </tfoot>
     </table>    
 
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item ">
+            <a class="page-link" href="contacts?page={{ contacts.firstPage }}">Previous</a>
+          </li>
+
+          @each(anchor in contacts.getUrlsForRange(1, contacts.lastPage))
+            <li class="page-item {{ (anchor.page === contacts.currentPage)? 'active' : ''}} " >
+                <a class="page-link" href="{{ anchor.url }}">{{ anchor.page }}</a>
+            </li>            
+          @end
+
+          <li class="page-item">
+            <a class="page-link" href="contacts?page={{ contacts.lastPage }}">Next</a>
+          </li>
+        </ul>
+        
+    </nav>
    
 
 @end

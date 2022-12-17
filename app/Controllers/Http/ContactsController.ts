@@ -3,15 +3,20 @@ import Contact from '../../Models/Contact';
 
 export default class ContactsController {
 
-    public async index({view}: HttpContextContract) {
+    public async index({view, request}: HttpContextContract) {
 
-        const contacts = await Contact.all(); 
-        // return contacts;
-        // console.log(contacts);
-        
-        return view.render('contacts.index', { contacts })
+        // const contacts = await Contact.all(); 
+        // return view.render('contacts.index', { contacts })
 
-        
+        const page = request.input('page', 1)
+        const limit = 10
+
+        const contacts = await Contact.query().orderBy('id','desc').paginate(page, limit)
+
+        // Changes the baseURL for the pagination links
+        contacts.baseUrl('/contacts')
+
+        return view.render('contacts.index', { contacts })       
         
     }
 
