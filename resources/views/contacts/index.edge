@@ -56,7 +56,7 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <li class="page-item ">
-            <a class="page-link" href="contacts?page={{ contacts.firstPage }}">Previous</a>
+            <a class="page-link" href="contacts?page={{ contacts.firstPage }}">Primero</a>
           </li>
 
           @each(anchor in contacts.getUrlsForRange(1, contacts.lastPage))
@@ -66,7 +66,7 @@
           @end
 
           <li class="page-item">
-            <a class="page-link" href="contacts?page={{ contacts.lastPage }}">Next</a>
+            <a class="page-link" href="contacts?page={{ contacts.lastPage }}">Ultimo</a>
           </li>
         </ul>
         
