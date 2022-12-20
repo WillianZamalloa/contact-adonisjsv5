@@ -71,6 +71,9 @@ Route.get('contacts/create', 'ContactsController.create').as('contacts.create')
 Route.post('contacts', 'ContactsController.store').as('contacts.store')
 Route.get('/contacts/:id', 'ContactsController.show').as('contacts.show')
 
+Route.get('/contacts/:id/edit', 'ContactsController.edit').as('contacts.edit')
+Route.patch('/contacts/:id', 'ContactsController.update').as('contacts.update')
+
 Route.delete('/contacts/:id', 'ContactsController.destroy').as('contacts.destroy')
 
 

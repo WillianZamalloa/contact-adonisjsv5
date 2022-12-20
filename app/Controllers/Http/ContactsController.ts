@@ -44,6 +44,25 @@ export default class ContactsController {
     }
 
 
+    public async edit({view, params}: HttpContextContract) {    
+
+        const contact = await Contact.findOrFail(params.id)
+        return view.render('contacts.edit',{ contact })        
+    }
+
+    public async update({view, session, params, request, response}: HttpContextContract) {    
+
+        const contact = await Contact.findOrFail(params.id)
+
+        contact.nombre = request.input('nombre')
+        contact.telefono = request.input('telefono')
+
+        await contact.save()
+
+        session.flash({ mensaje: ` ${ contact.$isPersisted }: Contacto modificado!`})
+        response.redirect().toRoute('contacts.index')
+    }
+
 
     public async destroy({params, session, response}: HttpContextContract) {    
 
